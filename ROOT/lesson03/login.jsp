@@ -2,8 +2,16 @@
 <%! private int number = 0;%>
 <%! private long startBlockingTime;%>
 
+
+<head>
+	<title></title>
+	<meta charset="UTF-8" />
+	<link href="style.css" rel="stylesheet" />
+</head>
+<body>
 <a href='registration.jsp'> registration</a>--
 <a href='login.jsp'> login</a>
+<center>
 <%
 
 boolean isShowForm = true;
@@ -46,11 +54,28 @@ if(number >= 3){
 
 if(isShowForm){
 	%>
-	<form action='login.jsp' method='post'>
-	<input type='text' name='login' />
-	<input type='text' name='password' />
-	<input type='submit' value='SEND' />
-	</form>
+form id="loginForm" action="" method="post">
+
+	<div class="field">
+		<label>Enter your login:</label>
+		<div class="input"><input type="text" name="login" value="" id="login" /></div>
+	</div>
+
+	<div class="field">
+		<a href="#" id="forgot">Forgot your password?</a>
+		<label>Enter your password:</label>
+		<div class="input"><input type="password" name="password" value="" id="pass" /></div>
+	</div>
+
+	<div class="submit">
+		<button type="submit">Enter</button>
+		<label id="remember"><input name="" type="checkbox" value="" /> Remember me</label>
+	</div>
+
+</form>
+
+</body>
+</html>
 	<%
 }
 out.write(result);
