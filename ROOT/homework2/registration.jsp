@@ -1,5 +1,6 @@
 <%@ page import="java.util.Objects" %>
 <%@ page import="lesson5.Registration" %>
+<%@ page import="lesson5.dao.RegistrationController" %>
 <a href='registration.jsp'> registration</a>--
 <a href='login.jsp'> login</a>
 <%
@@ -24,6 +25,9 @@ if(!Objects.isNull(login) && !Objects.isNull(password)){
 	isShowForm = regist.registration1(login, password, rePassword, name, gender, address, comment, agree);
 	errorText += regist.getError();
 	errorText += "</ul>";
+	if(!isShowForm){
+		new RegistrationController().registration(login, password, name, address, comment);
+	}
 }
 if(isShowForm){
 	%><center>
